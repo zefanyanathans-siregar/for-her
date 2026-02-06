@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>9 Months With You</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: linear-gradient(180deg, #0f2027, #1b2b34, #2c3e50);
+      color: #f1f1f1;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Tombol lagu di atas */
+    .music-btn {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .music-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .container {
+      padding: 100px 20px 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      max-width: 700px;
+      width: 100%;
+      padding: 50px 35px;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 20px;
+      color: #ffd6d6;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 15px;
+      color: #e6e6e6;
+    }
+
+    .heart {
+      font-size: 42px;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* Animasi */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    /* Daun jatuh */
+    .leaf {
+      position: fixed;
+      top: -10px;
+      color: rgba(255,255,255,0.15);
+      font-size: 20px;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button class="music-btn" onclick="playMusic()">Putar Lagu</button>
+
+<div class="container">
+  <div class="card">
+    <div class="heart">💔</div>
+    <h1>Happy 9 Months</h1>
+
+    <p>
+      276 hari kita jalan bareng.
+      276 hari penuh cerita, tawa, tangis, dan momen kecil
+      yang mungkin terlihat biasa,
+      tapi buat aku semuanya berarti.
+    </p>
+
+    <p>
+      Dari hari pertama kita mulai dekat, sampai hari ini,
+      kamu selalu jadi tempat pulang yang paling tenang.
+      Kamu bukan cuma pasangan,
+      tapi rumah yang selalu aku cari setiap hari.
+    </p>
+
+    <p>
+      Hari ini harusnya kita rayakan dengan senyum,
+      tapi justru hari ini aku harus lihat kamu pergi
+      demi masa depanmu.
+      Jauh dari aku,
+      jauh dari kebiasaan kita,
+      dan jauh dari semua hal kecil
+      yang biasanya kita lakukan bareng.
+    </p>
+
+    <p>
+      Aku sedih,
+      bukan karena aku nggak rela kamu pergi,
+      tapi karena aku harus belajar hidup
+      tanpa kehadiranmu setiap hari.
+    </p>
+
+    <p>
+      Tapi di balik semua rasa itu,
+      aku bangga sama kamu.
+      Kamu berani ambil langkah besar.
+      Kamu berani mengejar masa depan,
+      walau itu berarti harus meninggalkan banyak hal di belakang.
+    </p>
+
+    <p>
+      Mungkin nanti akan ada malam yang sepi,
+      hari-hari yang terasa panjang,
+      dan rindu yang datang tanpa aba-aba.
+      Tapi aku percaya,
+      jarak cuma soal tempat,
+      bukan soal hati.
+    </p>
+
+    <p>
+      Terima kasih sudah jadi bagian terindah
+      dalam 276 hariku.
+      Terima kasih sudah jadi rumah,
+      jadi teman,
+      dan jadi alasan aku mau terus bertahan.
+    </p>
+
+    <p>
+      Aku akan tetap di sini.
+      Nunggu kamu,
+      doain kamu,
+      dan percaya kalau suatu hari nanti
+      kita bakal ketemu lagi
+      dengan versi diri yang lebih kuat.
+    </p>
+
+    <p><strong>Happy 9 months, love.</strong></p>
+
+    <div class="footer">
+      Dari seseorang yang akan tetap menunggumu.
+      Zefanya & Alfina Forever
+    </div>
+  </div>
+</div>
+
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function playMusic() {
+    document.getElementById("bgm").play();
+  }
+
+  // Daun jatuh
+  function createLeaf() {
+    const leaf = document.createElement("div");
+    leaf.classList.add("leaf");
+    leaf.innerHTML = "🍂";
+    leaf.style.left = Math.random() * 100 + "vw";
+    leaf.style.animationDuration = (5 + Math.random() * 5) + "s";
+    leaf.style.fontSize = (15 + Math.random() * 15) + "px";
+    document.body.appendChild(leaf);
+
+    setTimeout(() => {
+      leaf.remove();
+    }, 10000);
+  }
+
+  setInterval(createLeaf, 500);
+</script>
+
+</body>
+</html>
